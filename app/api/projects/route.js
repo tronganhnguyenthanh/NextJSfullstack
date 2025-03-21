@@ -13,3 +13,4 @@ export async function GET(){
   const listProjectDomain = await db.execute(sql)
   return Response.json(listProjectDomain)
 }
+
