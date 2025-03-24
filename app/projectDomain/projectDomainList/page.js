@@ -92,18 +92,10 @@ export default function ProjectDomainList() {
           }
         </select>
       </div>
-      {
-        projectDomainList.length === 0
-          ?
-          <h2 className="text-2xl text-red-500 text-center">No data available</h2>
-          :
-          <h2 className="text-right text-xl text-purple-500 p-2">
-            Show {projectDomainList.length} results
-          </h2>
-      }
-      {projectDomainList.length > 0 && projectDomainList.map((i, index) => {
+      <div className="grid lg:grid-cols-1 md:grid-cols-2 sm:grid-cols-1">
+        {projectDomainList.length > 0 && projectDomainList.map((i, index) => {
         return (
-          <details key={index} className="text-orange-500 m-2 cursor-pointer">
+          <details key={index} className="text-orange-500 m-2 cursor-pointer text-center">
             <summary>{i.projectName}</summary>
             <Link href={`${i.projectLink}`} className="ml-6 text-blue-700">{i.projectLink}</Link>
             <button
@@ -113,11 +105,12 @@ export default function ProjectDomainList() {
             >
               Delete
             </button>
-            <hr />
+            <hr/>
           </details>
         )
-      })
-      }
+        })
+       }
+      </div>
       <Link href="/projectDomain/formProjectDomain" className="text-xl text-gray-500 m-2 p-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
           <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
